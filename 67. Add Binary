@@ -1,0 +1,27 @@
+class Solution {
+    public String addBinary(String a, String b) {
+        
+        int i=a.length()-1,j=b.length()-1,carry=0,sum=0;
+        StringBuilder s=new StringBuilder();
+        
+        while(i>=0||j>=0)
+        {
+            
+            int a1=i>=0?a.charAt(i)-'0':0;
+            int b1=j>=0?b.charAt(j)-'0':0;
+        
+            
+            sum=a1^b1^carry;
+            carry=a1 + b1 + carry > 1 ? 1 : 0;
+            
+            s.insert(0,sum);
+            
+            i--;
+            j--;
+        }
+           if (carry == 1) 
+               s.insert(0,1);
+            return s.toString();
+           
+    }
+}
